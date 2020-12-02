@@ -28,6 +28,12 @@ func input() []int {
 }
 
 func main() {
+	f, err := os.Create("memprofile")
+	if err != nil {
+		log.Fatalln("Cannot open file for memory profiling")
+	}
+	defer f.Close()
+
 	input := input()
 
 	t := time.Now()
@@ -36,12 +42,12 @@ func main() {
 		for _, i := range input {
 			for _, n := range input {
 				if num+i+n == 2020 {
-					fmt.Println(num * i * n)
 					fmt.Println(time.Since(t))
+					fmt.Println(num * i * n)
+
 					return
 				}
 			}
 		}
 	}
-
 }
