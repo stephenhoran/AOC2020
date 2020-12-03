@@ -25,7 +25,6 @@ func part1(input [][]string, moveX int, moveY int) (int, time.Duration) {
 	var win bool
 	var count int
 
-	//offsetX = len(input[0])
 	winCondition := len(input)
 
 	for !win {
